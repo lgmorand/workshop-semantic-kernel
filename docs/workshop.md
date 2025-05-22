@@ -13,7 +13,7 @@ contacts:
   - "@damienaicheh"
   - "@lgmorand"
 duration_minutes: 240
-tags: ai, agents, semantic kernel, intelligent, openai
+tags: ai, agents, semantic kernel, intelligent, openai, azure, csu
 navigation_levels: 3
 ---
 

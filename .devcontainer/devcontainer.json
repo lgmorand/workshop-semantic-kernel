@@ -1,0 +1,28 @@
+{
+  "name": "Semantic Kernel Hands On Lab",
+  "image": "mcr.microsoft.com/devcontainers/dotnet:dev-9.0-bookworm",
+  "containerUser": "vscode",
+  "features": {
+    //Az CLI install
+    "ghcr.io/devcontainers/features/azure-cli:latest": {},
+    // azd
+    "ghcr.io/azure/azure-dev/azd:latest": {}
+    },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        // Language related extensions
+        "ms-dotnettools.csharp",
+        "ms-dotnettools.csdevkit",
+        // Github
+        "github.copilot",
+        // azd + functions
+        "ms-azuretools.azure-dev",
+        // Bicep
+        "ms-azuretools.vscode-bicep",
+        // HTTP client
+        "humao.rest-client"
+      ]
+    }
+  }
+}
