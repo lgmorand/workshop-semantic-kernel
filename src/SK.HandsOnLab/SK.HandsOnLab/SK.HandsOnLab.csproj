@@ -22,4 +22,13 @@
 	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
+
+  <ItemGroup>
+	<Content Include="Plugins\Semantic\SuggestActivities\config.json">
+		<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	</Content>
+	<Content Include="Plugins\Semantic\SuggestActivities\skprompt.txt">
+		<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	</Content>
+  </ItemGroup>
 </Project>

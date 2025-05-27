@@ -1,7 +1,7 @@
 ﻿using Microsoft.SemanticKernel;
 using System.ComponentModel;
 
-namespace SK.HandsOnLab.Plugins
+namespace SK.HandsOnLab.Plugins.Native
 {
 
     internal sealed record WeatherForecast(
@@ -21,14 +21,16 @@ namespace SK.HandsOnLab.Plugins
             string date,
             string location)
         { 
+            Console.WriteLine("*********************************************************************");
             Console.WriteLine($"Calling {nameof(GetWeatherInformation)} from {nameof(WeatherPlugin)}");
+            Console.WriteLine("*********************************************************************");
 
             string key = $"{date}-{location}";
 
-            if (!this._forecasts.TryGetValue(key, out WeatherForecast? forecast))
+            if (!_forecasts.TryGetValue(key, out WeatherForecast? forecast))
             {
                 forecast = GenerateForecast(date, location);
-                this._forecasts[key] = forecast;
+                _forecasts[key] = forecast;
             }
 
             return forecast;

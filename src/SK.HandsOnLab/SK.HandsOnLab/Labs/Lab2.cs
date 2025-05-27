@@ -1,20 +1,22 @@
 ﻿using Microsoft.SemanticKernel;
 using Microsoft.SemanticKernel.Connectors.OpenAI;
-using SK.HandsOnLab.Plugins;
+using SK.HandsOnLab.Plugins.Native;
 using SK.HandsOnLab.Utils;
 
 namespace SK.HandsOnLab.Labs;
 
 public class Lab2 : ILab
 {
-    public string Name { get; set; } = "Use plugins";
+    public string Name { get; set; } = "Use semantic plugins";
 
     public async Task RunAsync()
     {
-        Console.WriteLine($"Running Lab 2 - {Name}");
+        Console.WriteLine("========================================================");
+        Console.WriteLine($"Running Lab - {Name}");
+        Console.WriteLine("========================================================");
 
         var kernel = KernelManager.GetChatKernel();
-        kernel.ImportPluginFromType<WeatherPlugin>();
+        kernel.ImportPluginFromPromptDirectory("Plugins/Semantic");
 
         Console.WriteLine("Ask your question: \n");
 
