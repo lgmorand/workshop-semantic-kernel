@@ -4,5 +4,5 @@
 public interface ILab
 {
     string Name { get; set; }
-    void Run();
+    Task RunAsync();
 }

@@ -1,15 +1,17 @@
-﻿using SK.HandsOnLab.Labs;
+﻿using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Hosting;
+using SK.HandsOnLab.Labs;
 using System.Reflection;
 
 namespace SK.HandsOnLab
 {
     class Program
     {
-        static void Main(string[] args)
+        static async Task Main(string[] args)
         {
-            Console.WriteLine("========================================");
-            Console.WriteLine("      Hands-On Lab Selection Menu       ");
-            Console.WriteLine("========================================");
+            Console.WriteLine("========================================================");
+            Console.WriteLine("      Semantic Kernel Hands-On Lab Selection Menu       ");
+            Console.WriteLine("========================================================");
 
             // Dictionary to hold lab classes with their corresponding numbers
             var labs = new Dictionary<int, Type>();
@@ -45,8 +47,7 @@ namespace SK.HandsOnLab
                 if (Activator.CreateInstance(labs[choice]) is ILab selectedLab)
                 {
                     Console.Clear();
-                    Console.WriteLine($"Running Lab {choice}: {GetLabName(labs[choice])}\n");
-                    selectedLab.Run();
+                    await selectedLab.RunAsync();
                 }
             }
             else if (choice == 0)
@@ -58,14 +59,8 @@ namespace SK.HandsOnLab
                 Console.WriteLine("Invalid selection. Please run the program again.");
             }
 
-            Console.WriteLine("\nPress any key to exit...");
-            Console.ReadKey();
-        }
-
-        // Helper method to get a friendly name for the lab
-        private static string GetLabName(Type labType)
-        {
-            return labType.Name.Replace("Lab", "Lab ");
+            //Console.WriteLine("\nPress any key to exit...");
+            //Console.ReadKey();
         }
     }
 }

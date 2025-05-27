@@ -1,14 +1,24 @@
-﻿namespace SK.HandsOnLab.Labs;
+﻿using Microsoft.SemanticKernel;
+using SK.HandsOnLab.Utils;
 
+namespace SK.HandsOnLab.Labs;
 
-// Example lab classes - you would create 8 of these in separate files
 public class Lab1 : ILab
 {
-    public string Name { get; set; } = "Semantic Kernel";
+    public string Name { get; set; } = "Vanilla Azure Open AI call";
 
-    public void Run()
+    public async Task RunAsync()
     {
         Console.WriteLine($"Running Lab 1 - {Name}");
-        // Lab 1 implementation here
+
+        var kernel = KernelManager.GetChatKernel();
+
+        Console.WriteLine("Ask your question: \n");
+
+        string? userRequest = Console.ReadLine();
+
+        var result = await kernel.InvokePromptAsync(userRequest);
+
+        Console.WriteLine(result);
     }
 }
