@@ -1,7 +1,8 @@
 {
     "appsettings": {
         "apiKey": "<YOUR-API-KEY>",
-        "deploymentName": "gpt-4o",
+        "chatModelDeploymentName": "gpt-4o",
+        "imageModelDeploymentName": "dall-e-3",
         "endpoint": "https://<YOUR-INSTANCE-NAME>.openai.azure.com/"
     }
 }

@@ -1,6 +1,4 @@
-﻿using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Hosting;
-using SK.HandsOnLab.Labs;
+﻿using SK.HandsOnLab.Labs;
 using System.Reflection;
 
 namespace SK.HandsOnLab

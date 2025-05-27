@@ -5,9 +5,9 @@ using SK.HandsOnLab.Utils;
 
 namespace SK.HandsOnLab.Labs;
 
-public class Lab3 : ILab
+public class Lab4 : ILab
 {
-    public string Name { get; set; } = "Use semantic plugins";
+    public string Name { get; set; } = "Use auto function calling";
 
     public async Task RunAsync()
     {
@@ -17,6 +17,7 @@ public class Lab3 : ILab
 
         var kernel = KernelManager.GetChatKernel();
         kernel.ImportPluginFromPromptDirectory("Plugins/Semantic");
+        kernel.ImportPluginFromType<WeatherPlugin>();
 
         Console.WriteLine("Ask your question: \n");
 

@@ -1,13 +1,13 @@
 ﻿using Microsoft.SemanticKernel;
 using Microsoft.SemanticKernel.Connectors.OpenAI;
-using SK.HandsOnLab.Plugins.Native;
+using Microsoft.SemanticKernel.TextToImage;
 using SK.HandsOnLab.Utils;
 
 namespace SK.HandsOnLab.Labs;
 
 public class Lab2 : ILab
 {
-    public string Name { get; set; } = "Use semantic plugins";
+    public string Name { get; set; } = "Create an image from text";
 
     public async Task RunAsync()
     {
@@ -15,19 +15,19 @@ public class Lab2 : ILab
         Console.WriteLine($"Running Lab - {Name}");
         Console.WriteLine("========================================================");
 
-        var kernel = KernelManager.GetChatKernel();
-        kernel.ImportPluginFromPromptDirectory("Plugins/Semantic");
+        var kernel = KernelManager.GetImageKernel();
+        var service = kernel.GetRequiredService<ITextToImageService>();
 
-        Console.WriteLine("Ask your question: \n");
+        Console.WriteLine("Describe the image you wants to generate: \n");
 
         string? userRequest = Console.ReadLine();
 
-        OpenAIPromptExecutionSettings settings = new() { FunctionChoiceBehavior = FunctionChoiceBehavior.Auto() };
+        Console.WriteLine("Wait for generation...");
 
-        var result = await kernel.InvokePromptAsync(userRequest, new(settings));
+            var generatedImages = await service.GetImageContentsAsync(
+                                                new TextContent(userRequest),
+                                                new OpenAITextToImageExecutionSettings { Size = (Width: 1792, Height: 1024) });
 
-        Console.WriteLine(result);
-
-        userRequest = Console.ReadLine();
+            Console.WriteLine(generatedImages[0].Uri!.ToString());
     }
 }

@@ -5,6 +5,8 @@
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+	 <!-- Experimental features -->
+	 <NoWarn>$(NoWarn);SKEXP0010;SKEXP0001;SKEXP0110;</NoWarn>
   </PropertyGroup>
 
   <ItemGroup>
@@ -12,8 +14,15 @@
     <PackageReference Include="Microsoft.Extensions.Hosting.Abstractions" Version="9.0.5" />
     <PackageReference Include="Microsoft.SemanticKernel" Version="1.54.0" />
     <PackageReference Include="Microsoft.SemanticKernel.Abstractions" Version="1.54.0" />
+    <PackageReference Include="Microsoft.SemanticKernel.Agents.Abstractions" Version="1.54.0" />
+    <PackageReference Include="Microsoft.SemanticKernel.Agents.Core" Version="1.54.0" />
+    <PackageReference Include="Microsoft.SemanticKernel.Agents.Orchestration" Version="1.54.0-preview" />
+    <PackageReference Include="Microsoft.SemanticKernel.Agents.Runtime.Abstractions" Version="1.54.0-preview" />
+    <PackageReference Include="Microsoft.SemanticKernel.Agents.Runtime.Core" Version="1.54.0-preview" />
+    <PackageReference Include="Microsoft.SemanticKernel.Agents.Runtime.InProcess" Version="1.54.0-preview" />
     <PackageReference Include="Microsoft.SemanticKernel.Connectors.AzureOpenAI" Version="1.54.0" />
     <PackageReference Include="Microsoft.SemanticKernel.Core" Version="1.54.0" />
+    <PackageReference Include="Microsoft.SemanticKernel.Experimental.Orchestration.Flow" Version="1.54.0-alpha" />
     <PackageReference Include="Microsoft.SemanticKernel.Plugins.Core" Version="1.54.0-preview" />
   </ItemGroup>
 

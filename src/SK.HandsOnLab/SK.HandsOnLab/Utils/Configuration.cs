@@ -1,16 +1,14 @@
 ﻿using Microsoft.Extensions.Configuration;
 
-namespace SK.HandsOnLab.Utils
+namespace SK.HandsOnLab.Utils;
+internal class Configuration
 {
-    internal class Configuration
+    public static IConfiguration GetConfiguration()
     {
-        public static IConfiguration GetConfiguration()
-        {
-            var builder = new ConfigurationBuilder()
-                .SetBasePath(AppDomain.CurrentDomain.BaseDirectory)
-                .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true);
+        var builder = new ConfigurationBuilder()
+            .SetBasePath(AppDomain.CurrentDomain.BaseDirectory)
+            .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true);
 
-            return builder.Build();
-        }
+        return builder.Build();
     }
 }
